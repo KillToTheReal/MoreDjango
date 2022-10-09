@@ -11,6 +11,8 @@
 ### Создать проект ``` django-admin startproject {Имя проекта} ```
 ### Накатить сервер. Из папки {Имя проекта} ``` python manage.py runserver ```
 ### Разделение логики внутри сайта(проекта) происходит по приложениям. Для создания соответственно ``` python manage.py startapp {Название приложения} ```
+
+### Добавить Vue CLI в проект ``` npm install -g @vue/cli ```
 #### В Django MVC === MTV(?). Где
 - Model == Model 
 - View == Template 

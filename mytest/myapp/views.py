@@ -5,8 +5,8 @@ from django.http.response import JsonResponse
 from myapp.models import Departments,Employees
 from myapp.serializers import DepartmentsSerializer,EmployeesSerializer
 from django.core.files.storage import default_storage
-# Create your views here.
 
+# Create your views here.
 @csrf_exempt
 def departmentApi(request,id=0):
     if request.method=='GET':
@@ -73,3 +73,7 @@ def saveImage(request):
         return JsonResponse(file_name,safe=False)
     else:
         return JsonResponse("Failed to Upload.",safe=False)
+
+@csrf_exempt
+def test_page(request):
+    return render(request,'myapp/test.html')
