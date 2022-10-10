@@ -9,6 +9,10 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+import environ
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
 
 from pathlib import Path
 import os
@@ -24,7 +28,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR,"images")
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-zq*j)#xe9iu_xyqy#cpjjj@23o*8la!n7#2tx9tyd^py=t*$0c'
+SECRET_KEY = env('APP_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -86,11 +90,11 @@ WSGI_APPLICATION = 'mytest.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'test_bd',
-        'USER': 'postgres',
-        'PASSWORD': '123',
-        'HOST': '0.0.0.0',
-        'PORT': '5432',
+        'NAME': env("DATABASE_NAME"),
+        'USER': env("DATABASE_USER"),
+        'PASSWORD': env("DATABASE_PASSWORD"),
+        'HOST': env("DATABASE_HOST"),
+        'PORT': env('DATABASE_PORT'),
     }
 }
 
