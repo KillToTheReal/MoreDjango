@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import re_path,path
 from django.conf.urls import include
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    re_path(r'^',include('myapp.urls')),
+    path('admin/', admin.site.urls), 
+    path('api/',include('jwtauth.urls',namespace='jwtauth')),
+    # re_path(r'^',include('myapp.urls')),
 ]
